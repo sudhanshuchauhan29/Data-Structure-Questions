@@ -1,0 +1,23 @@
+class Solution {
+    public boolean validPalindrome(String s) {
+         int l = 0;
+        int h = s.length()-1;
+        while(l<h){
+            if(s.charAt(l)==s.charAt(h)){
+                l++;
+                h--;
+            }
+            else{
+               return fun(s,l+1,h) || fun(s,l,h-1);
+            }
+        }
+            return true;
+        }
+  
+        private boolean fun(String s ,int l, int h){
+            while(l<h){
+                if(s.charAt(l++)!=s.charAt(h--)) return false;
+            }
+            return true;
+    }
+}
